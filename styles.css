@@ -65,7 +65,7 @@ button { cursor: pointer; }
 
 .hero { padding: 36px 0 24px; max-width: 720px; }
 .eyebrow, .section-label { color: var(--accent); letter-spacing: .16em; font-size: .67rem; font-weight: 800; margin: 0 0 8px; }
-h1 { font-size: clamp(2.1rem, 4.8vw, 3.9rem); line-height: 1; letter-spacing: -.05em; margin: 0; max-width: 780px; }
+h1 { font-size: clamp(1.85rem, 4vw, 3.3rem); line-height: 1; letter-spacing: -.045em; margin: 0; max-width: 720px; }
 h1 span { color: var(--accent); }
 .hero-copy { color: var(--muted); line-height: 1.55; font-size: .92rem; max-width: 590px; margin: 14px 0 0; }
 
