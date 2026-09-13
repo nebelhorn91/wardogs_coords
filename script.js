@@ -176,7 +176,7 @@ function drawMap() {
   const midX = (a.x + b.x) / 2;
   const midY = (a.y + b.y) / 2;
   if (currentDistance !== null) {
-    const label = `${formatNumber(currentDistance)} units`;
+    const label = `${formatNumber(currentDistance)} Meter`;
     ctx.font = "700 11px Inter, system-ui, sans-serif";
     const labelWidth = ctx.measureText(label).width;
     ctx.fillStyle = "rgba(8,13,10,.9)";
@@ -258,9 +258,10 @@ function calculateDistance() {
 
   const dx = x2 - x1;
   const dy = y2 - y1;
-  const distance = Math.hypot(dx, dy);
+  const coordinateDistance = Math.hypot(dx, dy);
+  const distanceMeters = coordinateDistance * 100;
   const previousPoints = currentPoints;
-  currentDistance = distance;
+  currentDistance = distanceMeters;
   currentPoints = {
     a: { x: x1, y: y1 },
     b: { x: x2, y: y2 },
@@ -268,9 +269,9 @@ function calculateDistance() {
 
   deltaX.textContent = formatNumber(Math.abs(dx));
   deltaY.textContent = formatNumber(Math.abs(dy));
-  distanceResult.textContent = formatNumber(distance);
+  distanceResult.textContent = formatNumber(distanceMeters);
   resultHint.textContent = `From (${formatNumber(x1)}, ${formatNumber(y1)}) to (${formatNumber(x2)}, ${formatNumber(y2)}).`;
-  calculationSteps.textContent = `√((${formatNumber(x2)} − ${formatNumber(x1)})² + (${formatNumber(y2)} − ${formatNumber(y1)})²) = ${formatNumber(distance)}`;
+  calculationSteps.textContent = `√((${formatNumber(x2)} − ${formatNumber(x1)})² + (${formatNumber(y2)} − ${formatNumber(y1)})²) × 100 = ${formatNumber(distanceMeters)} Meter`;
   copyButton.disabled = false;
 
   if (!previousPoints) fitMapToPoints();
