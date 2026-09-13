@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b100d">
+  <meta name="description" content="A fast coordinate distance calculator for Wardogs using the Pythagorean theorem.">
+  <title>Wardogs Coordinate Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Wardogs Coordinate Calculator home">
+        <span class="brand-mark" aria-hidden="true">W</span>
+        <span>
+          <strong>WARDOGS</strong>
+          <small>Coordinate Calculator</small>
+        </span>
+      </a>
+      <div class="status-pill"><span class="status-dot"></span> Online tool</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">TACTICAL UTILITY</p>
+        <h1>Calculate coordinate distance <span>instantly.</span></h1>
+        <p class="hero-copy">Enter two X/Y positions and get the straight-line distance between them using the Pythagorean theorem.</p>
+      </section>
+
+      <section class="calculator-grid" aria-label="Coordinate distance calculator">
+        <div class="calculator-card">
+          <div class="card-heading">
+            <div>
+              <p class="section-label">INPUT</p>
+              <h2>Coordinates</h2>
+            </div>
+            <button id="swapButton" class="ghost-button" type="button" title="Swap positions">⇄ <span>Swap</span></button>
+          </div>
+
+          <div class="position-block">
+            <div class="position-title"><span class="point-badge">A</span> Start position</div>
+            <div class="input-row">
+              <label>
+                <span>X coordinate</span>
+                <input id="x1" type="number" inputmode="decimal" step="any" placeholder="e.g. 1200" autocomplete="off">
+              </label>
+              <label>
+                <span>Y coordinate</span>
+                <input id="y1" type="number" inputmode="decimal" step="any" placeholder="e.g. 800" autocomplete="off">
+              </label>
+            </div>
+          </div>
+
+          <div class="connector" aria-hidden="true"><span></span><strong>TO</strong><span></span></div>
+
+          <div class="position-block">
+            <div class="position-title"><span class="point-badge secondary">B</span> Target position</div>
+            <div class="input-row">
+              <label>
+                <span>X coordinate</span>
+                <input id="x2" type="number" inputmode="decimal" step="any" placeholder="e.g. 1540" autocomplete="off">
+              </label>
+              <label>
+                <span>Y coordinate</span>
+                <input id="y2" type="number" inputmode="decimal" step="any" placeholder="e.g. 1120" autocomplete="off">
+              </label>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button id="exampleButton" class="secondary-button" type="button">Load example</button>
+            <button id="clearButton" class="secondary-button" type="button">Clear</button>
+          </div>
+        </div>
+
+        <aside class="result-card" aria-live="polite">
+          <p class="section-label">RESULT</p>
+          <div class="result-main">
+            <span class="result-caption">Straight-line distance</span>
+            <div class="distance-line">
+              <strong id="distanceResult">—</strong>
+              <span id="distanceUnit">units</span>
+            </div>
+            <p id="resultHint">Enter all four coordinates to calculate the distance.</p>
+          </div>
+
+          <div class="metric-grid">
+            <div class="metric">
+              <span>ΔX</span>
+              <strong id="deltaX">—</strong>
+            </div>
+            <div class="metric">
+              <span>ΔY</span>
+              <strong id="deltaY">—</strong>
+            </div>
+          </div>
+
+          <div class="formula-box">
+            <div class="formula-title">Pythagorean theorem</div>
+            <code>d = √((x₂ − x₁)² + (y₂ − y₁)²)</code>
+            <p id="calculationSteps">Your calculation steps will appear here.</p>
+          </div>
+
+          <button id="copyButton" class="copy-button" type="button" disabled>Copy distance</button>
+        </aside>
+      </section>
+
+      <section class="info-grid">
+        <article>
+          <span>01</span>
+          <h3>Enter point A</h3>
+          <p>Type the X and Y coordinates of your starting position.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Enter point B</h3>
+          <p>Type the X and Y coordinates of your target position.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Read the distance</h3>
+          <p>The result updates automatically as soon as all values are valid.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <span>WARDOGS Coordinate Calculator</span>
+      <span>Built for quick coordinate checks.</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
