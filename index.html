@@ -98,40 +98,12 @@
 
           <div class="formula-box">
             <div class="formula-title">Pythagorean theorem</div>
-            <code>d = √((x₂ − x₁)² + (y₂ − y₁)²)</code>
+            <code>d = √((x₂ − x₁)² + (y₂ − y₁)²) × 100</code>
             <p id="calculationSteps">Your calculation steps will appear here.</p>
           </div>
 
           <button id="copyButton" class="copy-button" type="button" disabled>Copy distance</button>
         </aside>
-      </section>
-
-      <section class="map-card" aria-label="Interactive coordinate map">
-        <div class="map-heading">
-          <div>
-            <p class="section-label">MAP</p>
-            <h2>Coordinate view</h2>
-            <p>Visualize both positions and the direct route between them.</p>
-          </div>
-          <div class="map-controls" aria-label="Map controls">
-            <button id="zoomOutButton" type="button" title="Zoom out">−</button>
-            <button id="fitMapButton" type="button" title="Fit points">Fit</button>
-            <button id="zoomInButton" type="button" title="Zoom in">+</button>
-          </div>
-        </div>
-        <div class="map-stage" id="mapStage">
-          <canvas id="coordinateMap" aria-label="Coordinate grid showing point A and point B"></canvas>
-          <div class="map-empty" id="mapEmpty">
-            <strong>No positions yet</strong>
-            <span>Enter both coordinate pairs to display them on the map.</span>
-          </div>
-          <div class="map-help">Scroll to zoom · Drag to move</div>
-        </div>
-        <div class="map-legend">
-          <span><i class="legend-dot point-a"></i> Point A</span>
-          <span><i class="legend-dot point-b"></i> Point B</span>
-          <span><i class="legend-line"></i> Direct distance</span>
-        </div>
       </section>
 
       <section class="info-grid">
@@ -148,7 +120,7 @@
         <article>
           <span>03</span>
           <h3>Read the distance</h3>
-          <p>The result and map update automatically as soon as all values are valid.</p>
+          <p>The result updates automatically and is shown directly in meters.</p>
         </article>
       </section>
     </main>
