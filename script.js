@@ -54,6 +54,61 @@ function calculateDistance() {
   copyButton.disabled = false;
 }
 
+function parseCoordinatePaste(text) {
+  const matches = text.match(/[-+]?\d+(?:\.\d+)?/g);
+  if (!matches || (matches.length !== 2 && matches.length !== 4)) return null;
+
+  const values = matches.map(Number);
+  return values.every(Number.isFinite) ? values : null;
+}
+
+function pairIsComplete(startIndex) {
+  return inputs[startIndex].value.trim() !== "" && inputs[startIndex + 1].value.trim() !== "";
+}
+
+function fillPair(startIndex, x, y) {
+  inputs[startIndex].value = x;
+  inputs[startIndex + 1].value = y;
+}
+
+document.addEventListener("paste", (event) => {
+  const text = event.clipboardData?.getData("text")?.trim();
+  if (!text) return;
+
+  const pastedValues = parseCoordinatePaste(text);
+  if (!pastedValues) return;
+
+  event.preventDefault();
+
+  if (pastedValues.length === 4) {
+    fillPair(0, pastedValues[0], pastedValues[1]);
+    fillPair(2, pastedValues[2], pastedValues[3]);
+    calculateDistance();
+    inputs[2].focus();
+    return;
+  }
+
+  const [x, y] = pastedValues;
+  const startComplete = pairIsComplete(0);
+  const targetComplete = pairIsComplete(2);
+
+  if (!startComplete) {
+    fillPair(0, x, y);
+    inputs[2].focus();
+  } else if (!targetComplete) {
+    fillPair(2, x, y);
+    inputs[2].focus();
+  } else {
+    // Both pairs already contain coordinates: start a fresh two-paste sequence.
+    fillPair(0, x, y);
+    inputs[2].value = "";
+    inputs[3].value = "";
+    inputs[2].focus();
+  }
+
+  calculateDistance();
+});
+
 inputs.forEach((input) => input.addEventListener("input", calculateDistance));
 
 clearButton.addEventListener("click", () => {
