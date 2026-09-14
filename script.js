@@ -50,7 +50,7 @@ function calculateDistance() {
   deltaY.textContent = formatNumber(Math.abs(dy));
   distanceResult.textContent = formatNumber(distanceMeters);
   resultHint.textContent = `From (${formatNumber(x1)}, ${formatNumber(y1)}) to (${formatNumber(x2)}, ${formatNumber(y2)}).`;
-  calculationSteps.textContent = `√((${formatNumber(x2)} − ${formatNumber(x1)})² + (${formatNumber(y2)} − ${formatNumber(y1)})²) × 100 = ${formatNumber(distanceMeters)} Meter`;
+  calculationSteps.textContent = `√((${formatNumber(x2)} − ${formatNumber(x1)})² + (${formatNumber(y2)} − ${formatNumber(y1)})²) × 100 = ${formatNumber(distanceMeters)} meters`;
   copyButton.disabled = false;
 }
 
